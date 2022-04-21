@@ -1,4 +1,6 @@
 <script>
+/* Import Components */
+import { ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import Navbar from '@/components/Navbar.vue'
 import Resources from './views/Resources.vue'
@@ -7,6 +9,7 @@ import Main from './components/Main.vue'
 import ShowCase from './components/ShowCase.vue'
 import Boost from './components/Boost.vue'
 import Footer from './components/Footer.vue'
+import LinkResults from './components/LinkResults.vue'
 
 export default {
   name: 'App',
@@ -18,26 +21,23 @@ export default {
     Main,
     ShowCase,
     Boost,
-    Footer
-}
+    Footer,
+    LinkResults
+},
+ 
 }
 
 </script>
 
 <template>
- <div class="container flex flex-col max-w-full  pt-10">
+  <div class="container flex flex-col max-w-full pt-10">
     <Navbar />
     <Main />
-    <div class=" ml-20 ">
-      <Form />
-    </div>
-    <div class=" max-w-full">
-      <ShowCase />
-    </div>
+    <Form  />
+    <LinkResults />
+    <ShowCase />
     <Boost class=" max-w-full" />
     <Footer/>
     <RouterView />
- </div>
+  </div>
 </template>
-
-
