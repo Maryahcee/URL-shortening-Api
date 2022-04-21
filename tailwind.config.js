@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'cyan': 'hsl(180, 66%, 49%)',
+        'Cyan': 'hsl(180, 66%, 49%)',
         'dark-violet': 'hsl(257, 27%, 26%)',
         'gray': 'hsl(0, 0%, 75%)',
         'grayish-violet': 'hsl(257, 7%, 63%)',
