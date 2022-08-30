@@ -5,16 +5,13 @@ import serviceUrl from '../service/index'
 const store = createStore({
     state: {
         
-        links:[
-            
-        ],
+        links:[],
         error: "",
-            
         btnResults: [
             {
             change:"Copied"
-        }
-    ]
+        }],
+        isActive: true,
     },
     mutations: {  
         setUrls(state, payload) { 
@@ -46,7 +43,6 @@ const store = createStore({
                             {
                                  url:ourLink
                              }
-            
                             }
                             
              )
@@ -58,14 +54,11 @@ const store = createStore({
             ]
              commit('setUrls', storeData)
          } catch(error){
-             commit('setUrls', [
-
-           ])
+             commit('setUrls', [])
          }},
          setError({commit}, errorMessage) {
             commit('addError', errorMessage)
           }
-         
     },
 
 
