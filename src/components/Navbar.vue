@@ -55,7 +55,7 @@ export default {
             "
           >
             <span class="pr-5">Login</span>
-            <button class="text-zinc-100 text-md px-6 py-3 bg-Cyan rounded-3xl">
+            <button class="text-zinc-100 text-md px-6 py-2 bg-Cyan rounded-3xl">
               Sign Up
             </button>
           </div>
@@ -64,16 +64,20 @@ export default {
     </div>
   </header>
   <!--Mobile Version NavBar-->
-  <div @click="toggleNav" class="md:hidden -mt-5">
-    <div class="flex justify-center items-center">
-      <img class="w-36" src="../assets/images/logo.svg" alt="" />
-      <div class="flex flex-row justify-end items-center w-full mr-5">
+  <div @click="toggleNav" class="md:hidden -mt-5 max-w-full">
+    <div class="flex justify-center items-center w-full pl-2">
+      <div class="flex justify-start w-full">
+        <img class="w-36" src="../assets/images/logo.svg" alt="" />
+      </div>
+      <div class="flex flex-row justify-end items-center mr-5">
         <button
           type="button"
           class="
             text-gray-800
             hover:text-gray-400
             focus:outline-none focus:text-gray-400
+            flex
+            justify-end
           "
           aria-label="toggle menu"
         >
@@ -85,22 +89,22 @@ export default {
           </svg>
         </button>
         <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-        <div class="relative">
+        <div class="relative mb-2 flex">
           <ul
             :class="showMenu ? 'flex' : 'hidden'"
             class="
               flex-col
-              space-y-1
+              space-y-2
               flex
               absolute
               top-5
               right-1
-              bg-purple-900
-              w-60
+              bg-dark-violet
+              w-96
               items-center
               rounded-lg
               text-white text-lg
-              p-3
+              p-5
             "
           >
             <li class="text-gray-100 hover:text-indigo-400">Features</li>
@@ -110,13 +114,13 @@ export default {
             <p class="text-xl font-bold hover:text-indigo-400">Login</p>
             <button
               class="
-                bg-cyan-300
+                bg-Cyan
                 rounded-lg
                 p-2
                 w-3/4
                 text-xl
                 font-bold
-                hover:bg-cyan-500
+                hover:bg-cyan-300
               "
             >
               Sign Up

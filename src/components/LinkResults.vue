@@ -110,6 +110,7 @@ const copyLink = async () => {
       </div>
     </div>
   </div>
+  <!--Mobile link Results-->
 </template>
 
 
