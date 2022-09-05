@@ -34,7 +34,7 @@ npm run build
 ### Links
 
 - Solution URL: [Solution URL here](https://github.com/Maryahcee/URL-shortening-Api)
-- Solution URL: [Solution URL here](https://main--githubdevfindersearch.netlify.app/)
+- Solution URL: [Solution URL here](https://url-shortening-api-challenge.netlify.app/)
 ## My process
 
 -Install Vue CLI
