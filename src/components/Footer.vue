@@ -102,7 +102,7 @@
     </div>
   </footer>
   <!--Mobile Footer-->
-  <div class="bg-very-dark-blue text-white">
+  <div class="bg-very-dark-blue text-white md:hidden">
     <!--Mobile footer logo-->
     <div class="card flex justify-center mt-8 w-full">
       <h1 class="text-white font-extrabold text-4xl">Shortly</h1>

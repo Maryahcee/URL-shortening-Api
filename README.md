@@ -27,3 +27,26 @@ npm run dev
 ```sh
 npm run build
 ```
+### Screenshots
+
+![](./src/assets/images/Screenshot.png)
+
+### Links
+
+- Solution URL: [Solution URL here](https://github.com/Maryahcee/URL-shortening-Api)
+- Solution URL: [Solution URL here](https://main--githubdevfindersearch.netlify.app/)
+## My process
+
+-Install Vue CLI
+-create components as per card using mobile first approach
+-Used Tailwind Css to style my card
+-hosted the site using netlify
+### Built with
+
+- Semantic HTML5 markup
+- Tailwind CSS
+- Flexbox
+- Mobile-first workflow
+- [Vuejs](https://vuejs.org/) - Vuejs framework
+- [Styled Components](https://styled-components.com/) - For styles
+## Author
