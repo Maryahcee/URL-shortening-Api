@@ -54,8 +54,17 @@ export default {
               pb-10
             "
           >
-            <span class="pr-5">Login</span>
-            <button class="text-zinc-100 text-md px-6 py-2 bg-Cyan rounded-3xl">
+            <span class="pr-5 hover:text-very-dark-violet">Login</span>
+            <button
+              class="
+                text-zinc-100 text-md
+                px-6
+                py-2
+                bg-Cyan
+                rounded-3xl
+                hover:bg-cyan-500
+              "
+            >
               Sign Up
             </button>
           </div>
