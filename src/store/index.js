@@ -38,18 +38,18 @@ const store = createStore({
         async getUrls({ commit }, ourLink)
          { 
              try{
-                    let response = await axios.get(serviceUrl, {
-                             params:
-                            {
+                    let response = await axios.post(serviceUrl, {
+                             
+                            
                                  url:ourLink
-                             }
+                             
                             }
                             
              )
              let storeData = [
                  {
-                     rawLink:response.data.result.original_link,
-                     shortLink:response.data.result.short_link
+                     rawLink:ourLink,
+                     shortLink:response.data.result_url
                 }
             ]
              commit('setUrls', storeData)
