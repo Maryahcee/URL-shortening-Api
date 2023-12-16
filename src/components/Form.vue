@@ -73,6 +73,7 @@ export default {
         <input
           class="bg-white w-11/12 rounded-lg pl-5 mb-2 p-3 text-xl"
           placeholder="Shorten a link here... "
+          name="shorten"
           type="url"
           v-model="url"
         />
