@@ -38,12 +38,16 @@ const store = createStore({
         async getUrls({ commit }, ourLink)
          { 
              try{
-                    let response = await axios.post(serviceUrl, {
+                 let response = await axios.post(serviceUrl, {
                              
                             
-                                 url:ourLink
+                     url: ourLink
                              
-                            }
+                 },
+                        headers = {
+                            'Access-Control-Allow-origin': '*',
+                            'Content-Type': 'application/json',
+                        }
                             
              )
              let storeData = [
