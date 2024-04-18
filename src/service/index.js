@@ -1,4 +1,4 @@
 
-const serviceUrl = 'https://cleanuri.com/api/v1/shorten'
+const serviceUrl = 'https://url-shortener-backend-2kio.onrender.com/shorten-url'
 
 export default serviceUrl

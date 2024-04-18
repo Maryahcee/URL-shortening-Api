@@ -43,11 +43,7 @@ const store = createStore({
                             
                      url: ourLink
                              
-                 },
-                        headers = {
-                            'Access-Control-Allow-origin': '*',
-                            'Content-Type': 'application/json',
-                        }
+                 }
                             
              )
              let storeData = [
