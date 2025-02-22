@@ -29,7 +29,7 @@ export default {
         return;
       }
 
-      // Clear error & shorten URL
+      // Clear errors & shorten URL
       this.$store.dispatch("setError", "");
       this.isLoading = true;
       console.log("API Call");
