@@ -16,7 +16,7 @@ const props = defineProps({
 const copyShort = ref("Copy");
 const onCopied = ref("[bg-cyan-400]");
 
-const copyLink = async () => {
+const copyLink = async (link) => {
   copyShort.value = "Copied!";
   onCopied.value = "bg-red-400";
 
@@ -25,7 +25,7 @@ const copyLink = async () => {
     onCopied.value = "bg-cyan-400";
   }, 2500);
 
-  navigator.clipboard.writeText(props.shorterLink);
+  navigator.clipboard.writeText(link);
 };
 </script>
 <template>
@@ -53,7 +53,7 @@ const copyLink = async () => {
         <div class="flex items-center justify-center">
           <a
             target="blank"
-            :href="(shorterLink = link.shortLink)"
+            :href="(link.shortLink)"
             rel="noreferrer noopener"
             class="p-3 overflow-hidden flex text-center justify-center outline-none rounded-lg ml-5"
             >{{ shorterLink }}</a
@@ -62,7 +62,7 @@ const copyLink = async () => {
         <div class="rounded-lg mx-3 flex justify-end items-center">
           <button
             :class="[onCopied, copyShort]"
-            @click="copyLink"
+            @click="copyLink(link.shortLink)"
             class="text-zinc-200 rounded-lg float-right bg-Cyan w-28 font-['Poppins'] p-3 text-md"
           >
             {{ copyShort }}
