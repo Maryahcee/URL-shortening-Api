@@ -2,25 +2,49 @@
 
 <script>
 export default {
+  data() {
+    return {
+      url: "", // Define url so v-model works
+      isLoading: false, // Prevents duplicate clicks
+    };
+  },
+   computed: {
+    isActive() {
+      return this.$store.state.isActive; // Get isActive from Vuex store
+    },
+  },
   methods: {
-    showLinks(url) {
-      if (url === undefined) {
-        this.$store.dispatch("setError", "Empty error");
-      } else if (
-        !url.match(
-          /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+    showLinks() {
+      if (!this.url) {
+        this.$store.dispatch("setError", "Empty URL"); // Improved error message
+        return;
+      }
+
+      if (
+        !this.url.match(
+          /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
         )
       ) {
-        this.$store.dispatch("setError", "Invalid url");
-      } else {
-        ///
-        this.$store.dispatch("setError", "");
-        this.$store.dispatch("getUrls", url);
+        this.$store.dispatch("setError", "Invalid URL");
+        return;
       }
+
+      // Clear error & shorten URL
+      this.$store.dispatch("setError", "");
+      this.isLoading = true;
+      console.log("API Call");
+
+      try {
+        await this.$store.dispatch("getUrls", this.url);
+        } finally {
+          this.isLoading = false;
+          this.url = "";
+        }
     },
   },
 };
 </script>
+
 
 <template>
   <!-- Desktop url link section -->
@@ -43,12 +67,13 @@ export default {
 
           <div class="pl-5">
             <button
-              @click="[(isActive = !isActive)]"
+              @click="showLinks(url)"
+              :disabled = "isLoading"
               class="w-32 text-zinc-200 hover:text-zinc-300 text-md bg-Cyan rounded-md p-3 hover:bg-cyan-500"
               :class="[isActive ? 'bg-Cyan' : 'bg-cyan-300']"
               type="submit"
             >
-              {{ isActive ? "Shorten it" : "Shorten  it " }}
+              {{ isLoading ? "Shortening..." : "Shorten  it" }}
             </button>
           </div>
         </form>

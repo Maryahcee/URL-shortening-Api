@@ -15,15 +15,14 @@ const store = createStore({
     },
     mutations: {  
         setUrls(state, payload) { 
-            let newlinks = state.links
-            state.links.push =  newlinks.concat(payload)
+            state.links =  state.links.concat(payload)
 
         },
         addError(state, payload) {
             state.error = payload;
         },
-        toggleActive(state) {
-            state.isActive = !state.isActive;
+        setActive(state, payload) {
+            state.isActive = payload;
         }
     },
     getters: {
@@ -40,7 +39,12 @@ const store = createStore({
         async getUrls({ commit }, ourLink)
          { 
              try{
-                 let response = await axios.post(serviceUrl, {url: ourLink})
+                console.time("API Request");
+
+                 let response = await axios.post(serviceUrl, {url: ourLink});
+                 
+                 console.timeEnd("API Request");
+
              let storeData = [
                  {
                      rawLink:ourLink,
@@ -48,8 +52,10 @@ const store = createStore({
                 }
             ]
              commit('setUrls', storeData)
+             commit("setActive", true)
          } catch(error){
              commit('setUrls', "Failed to shorten URL")
+             commit("setActive", false)
          }},
          setError({commit}, errorMessage) {
             commit('addError', errorMessage)
