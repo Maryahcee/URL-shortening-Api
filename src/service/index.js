@@ -1,4 +1,4 @@
 
-const serviceUrl = 'https://url-shortener-backend-2kio.onrender.com/shorten-url'
+const serviceUrl = 'https://ulvis.net/api/v1/shorten'
 
 export default serviceUrl
