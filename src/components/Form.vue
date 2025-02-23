@@ -77,7 +77,8 @@ export default {
               type="submit"
             >
               {{ isLoading ? "Shortening..." : "Shorten  it" }}
-              
+               <span v-if="isLoading">Shortening...</span>
+              <span v-else>Shorten it</span>
             </button>
           </div>
         </form>
