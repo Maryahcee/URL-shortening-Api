@@ -14,7 +14,7 @@ export default {
     },
   },
   methods: {
-    showLinks() {
+   async showLinks() {
       if (!this.url) {
         this.$store.dispatch("setError", "Empty URL"); // Improved error message
         return;
