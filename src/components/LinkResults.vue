@@ -2,8 +2,6 @@
 import { computed, ref } from "vue";
 import store from "../store";
 
-const store = useStore();
-
 const short = computed(() => store.state.links);
 
 const copyShort = ref("Copy");
