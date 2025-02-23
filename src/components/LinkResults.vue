@@ -22,7 +22,7 @@ const copyLink = (link) => {
   }, 2500);
 
   navigator.clipboard.writeText(link);
-};
+}
 </script>
 
 <template>

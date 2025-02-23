@@ -60,7 +60,7 @@ const store = createStore({
          }
           catch(error){
              console.error("Error shortening URL:", error);
-             commit('setUrls', "Failed to shorten URL. Please try again")
+             commit('setError', "Failed to shorten URL")
              commit("setActive", false)
          }},
          setError({commit}, errorMessage) {
