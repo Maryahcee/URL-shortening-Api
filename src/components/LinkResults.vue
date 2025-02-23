@@ -2,23 +2,14 @@
 import { computed, ref } from "vue";
 import store from "../store";
 
-const short = computed(() => {
-  return store.state.links;
-});
+const store = useStore();
 
-const props = defineProps({
-  shorterLink: {
-    type: String,
-    isActive: true,
-  },
-});
+const short = computed(() => store.state.links);
 
 const copyShort = ref("Copy");
-const onCopied = ref("[bg-cyan-400]");
+const onCopied = ref("bg-cyan-400");
 
 const copyLink = (link) => {
-  if(!link) {
-    alert("No link to Copy!");const copyLink = (link) => {
   if (!link) {
     alert("No link to copy!");
     return;
@@ -27,7 +18,7 @@ const copyLink = (link) => {
   copyShort.value = "Copied!";
   onCopied.value = "bg-red-400";
 
-   setTimeout(() => {
+  setTimeout(() => {
     copyShort.value = "Copy";
     onCopied.value = "bg-cyan-400";
   }, 2500);
@@ -35,6 +26,7 @@ const copyLink = (link) => {
   navigator.clipboard.writeText(link);
 };
 </script>
+
 <template>
   <!-- url results link -->
   <div
