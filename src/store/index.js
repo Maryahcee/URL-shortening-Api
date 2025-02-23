@@ -15,7 +15,7 @@ const store = createStore({
     },
     mutations: {  
         setUrls(state, payload) { 
-            state.links =  state.links.concat(payload)
+            state.links = [...state.links, ...payload];
 
         },
         addError(state, payload) {
@@ -51,7 +51,7 @@ const store = createStore({
                         rawLink:ourLink,
                         shortLink:response.data.result_url
                    }
-             }, 
+             }
             ];
              commit('setUrls', storeData)
              commit("setActive", true)
