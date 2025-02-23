@@ -14,34 +14,37 @@ export default {
     },
   },
   methods: {
-   async showLinks() {
-      if (!this.url) {
-        this.$store.dispatch("setError", "Empty URL"); // Improved error message
-        return;
-      }
+  async showLinks() { 
+    if (!this.url) {
+      this.$store.dispatch("setError", "Empty URL");
+      return;
+    }
 
-      if (
-        !this.url.match(
-          /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
-        )
-      ) {
-        this.$store.dispatch("setError", "Invalid URL");
-        return;
-      }
+    if (
+      !this.url.match(
+        /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
+      )
+    ) {
+      this.$store.dispatch("setError", "Invalid URL");
+      return;
+    }
 
-      // Clear errors & shorten URL
-      this.$store.dispatch("setError", "");
-      this.isLoading = true;
-      console.log("API Call");
+    // Clear error and show loading state
+    this.$store.dispatch("setError", "");
+    this.isLoading = true;
+    console.log("API Call");
 
-      try {
-        await this.$store.dispatch("getUrls", this.url);
-        } finally {
-          this.isLoading = false;
-          this.url = "";
-        }
-    },
-  },
+    try {
+      await this.$store.dispatch("getUrls", this.url);
+    } catch (error) {
+      console.error("Error shortening URL:", error);
+    } finally {
+      this.isLoading = false;  // Ensure loading state is turned off
+      this.url = "";  // Clear input after submission
+    }
+  }
+}
+
 };
 </script>
 
