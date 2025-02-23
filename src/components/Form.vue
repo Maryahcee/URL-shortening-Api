@@ -36,11 +36,11 @@ export default {
 
     try {
       await this.$store.dispatch("getUrls", this.url);
+      this.url = "";
     } catch (error) {
       console.error("Error shortening URL:", error);
     } finally {
-      this.isLoading = false;  // Ensure loading state is turned off
-      this.url = "";  // Clear input after submission
+      this.isLoading = false;  // Resets loading state
     }
   }
 }

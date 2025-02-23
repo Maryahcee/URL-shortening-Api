@@ -45,16 +45,22 @@ const store = createStore({
                  
                  console.timeEnd("API Request");
 
-             let storeData = [
-                 {
-                     rawLink:ourLink,
-                     shortLink:response.data.result_url
-                }
-            ]
+             if (response.data && response.data.result_url) {
+                let storeData = [
+                    {
+                        rawLink:ourLink,
+                        shortLink:response.data.result_url
+                   }
+             }, 
+            ];
              commit('setUrls', storeData)
              commit("setActive", true)
-         } catch(error){
-             commit('setUrls', "Failed to shorten URL")
+         } else {
+            throw new Error("Invalid API Response"); 
+         }
+          catch(error){
+             console.error("Error shortening URL:", error);
+             commit('setUrls', "Failed to shorten URL. Please try again")
              commit("setActive", false)
          }},
          setError({commit}, errorMessage) {
