@@ -16,11 +16,18 @@ const props = defineProps({
 const copyShort = ref("Copy");
 const onCopied = ref("[bg-cyan-400]");
 
-const copyLink = async (link) => {
+const copyLink = (link) => {
+  if(!link) {
+    alert("No link to Copy!");const copyLink = (link) => {
+  if (!link) {
+    alert("No link to copy!");
+    return;
+  }
+
   copyShort.value = "Copied!";
   onCopied.value = "bg-red-400";
 
-  await setTimeout(() => {
+   setTimeout(() => {
     copyShort.value = "Copy";
     onCopied.value = "bg-cyan-400";
   }, 2500);
@@ -31,7 +38,7 @@ const copyLink = async (link) => {
 <template>
   <!-- url results link -->
   <div
-    v-for="(link, index) in $store.state.links"
+    v-for="(link, index) in short"
     :key="index"
     class="container max-w-full bg-zinc-200"
   >
@@ -53,10 +60,10 @@ const copyLink = async (link) => {
         <div class="flex items-center justify-center">
           <a
             target="blank"
-            :href="(link.shortLink)"
+            :href="link.shortLink"
             rel="noreferrer noopener"
             class="p-3 overflow-hidden flex text-center justify-center outline-none rounded-lg ml-5"
-            >{{ shorterLink }}</a
+            >{{ link.shorterLink || "Generating..." }}</a
           >
         </div>
         <div class="rounded-lg mx-3 flex justify-end items-center">
