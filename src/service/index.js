@@ -1,4 +1,4 @@
 
-const serviceUrl = 'https://ulvis.net/api/v1/shorten'
+const serviceUrl = 'https://cleanuri.com/api/v1/shorten'
 
 export default serviceUrl
