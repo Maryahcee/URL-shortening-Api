@@ -32,7 +32,7 @@ const copyLink = (link) => {
     :key="index"
     class="container max-w-full bg-zinc-200"
   >
-    <p>{{ $store.state.links.errors }}</p>
+   
     <div
       class="flex rounded-lg flex-row bg-zinc-200 mx-auto items-center align-middle justify-center md:w-11/12 w-full mb-3"
     >
